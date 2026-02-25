@@ -14,23 +14,15 @@
 
 [Live Demo](https://huminify.vercel.app) • [Documentation](https://huminify.vercel.app/docs) • [Report Bug](https://github.com/Yogesh1290/huminify-c2pa-detector/issues) • [Request Feature](https://github.com/Yogesh1290/huminify-c2pa-detector/issues)
 
+</div>
+
 ---
 
 ## 🎥 Video Tutorial
 
-<div align="center">
+[![Huminify Demo Video](https://img.youtube.com/vi/hN3GYnz9PDg/maxresdefault.jpg)](https://youtu.be/hN3GYnz9PDg)
 
-**Watch the complete walkthrough and demo:**
-
-<a href="https://youtu.be/hN3GYnz9PDg" target="_blank">
-  <img src="https://img.youtube.com/vi/hN3GYnz9PDg/maxresdefault.jpg" alt="Huminify Demo Video" style="width:100%;max-width:800px;border-radius:10px;box-shadow:0 4px 6px rgba(0,0,0,0.1)">
-</a>
-
-**[▶️ Click to Watch on YouTube](https://youtu.be/hN3GYnz9PDg)**
-
-*Learn how to use Huminify, see live detection examples, and understand C2PA technology*
-
-</div>
+**[▶️ Watch Full Demo on YouTube](https://youtu.be/hN3GYnz9PDg)** - Learn how to use Huminify, see live detection examples, and understand C2PA technology.
 
 ---
 
