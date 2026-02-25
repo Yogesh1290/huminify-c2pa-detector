@@ -150,9 +150,16 @@ export default function Layout({ children }: LayoutProps) {
               >
                 ⭐ Star on GitHub
               </a>
-              <a href="#" className="hover:text-primary-500 transition-colors">Privacy Policy</a>
-              <a href="#" className="hover:text-primary-500 transition-colors">Terms of Service</a>
-              <a href="#" className="hover:text-primary-500 transition-colors">Contact</a>
+              <a href="/privacy" className="hover:text-primary-500 transition-colors">Privacy Policy</a>
+              <a href="/terms" className="hover:text-primary-500 transition-colors">Terms of Service</a>
+              <a 
+                href="https://github.com/Yogesh1290/huminify-c2pa-detector/issues" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="hover:text-primary-500 transition-colors"
+              >
+                Contact
+              </a>
             </div>
           </div>
         </div>
