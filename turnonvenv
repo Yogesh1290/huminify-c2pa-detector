@@ -1,0 +1,11 @@
+# Create venv
+python -m venv venv
+
+# Activate it
+venv\Scripts\activate.bat
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Run the detector
+python ai_content_detector.py test_sample.txt
