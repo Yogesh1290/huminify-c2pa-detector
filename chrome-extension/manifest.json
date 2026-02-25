@@ -1,0 +1,31 @@
+{
+  "manifest_version": 3,
+  "name": "Huminify - AI Content Detector",
+  "version": "1.0.0",
+  "description": "Detect AI-generated images using C2PA metadata analysis. Identifies content authenticity on any webpage.",
+  "author": "Yogesh1290",
+  "homepage_url": "https://github.com/Yogesh1290/huminify-c2pa-detector",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "contextMenus"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Huminify - AI Content Detector"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_idle"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+# Development files
+.DS_Store
+Thumbs.db
+*.log
+*.swp
+*.swo
+*~
+
+# IDE
+.vscode/
+.idea/
+*.sublime-*
+
+# Temporary files
+*.tmp
+*.bak
+*.cache
+
+# Node modules (if any build process added)
+node_modules/
+
+# Build artifacts (if any)
+dist/
+build/
+
+# OS files
+.DS_Store
+desktop.ini
+
+# Extension packaging
+*.zip
+*.crx
+*.pem

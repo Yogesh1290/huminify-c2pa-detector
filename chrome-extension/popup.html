@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Huminify</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      width: 350px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, #f0fdfa 0%, #e0f2fe 100%);
+    }
+
+    .header {
+      background: linear-gradient(135deg, oklch(69.6% .17 162.48), oklch(62% 0.16 162.48));
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .header h1 {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 5px;
+    }
+
+    .header p {
+      font-size: 12px;
+      opacity: 0.9;
+    }
+
+    .content {
+      padding: 20px;
+    }
+
+    .toggle-section {
+      background: white;
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 16px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .toggle-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+
+    .toggle-header h3 {
+      font-size: 14px;
+      font-weight: 600;
+      color: #1e293b;
+    }
+
+    .toggle-switch {
+      position: relative;
+      width: 48px;
+      height: 24px;
+    }
+
+    .toggle-switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #cbd5e1;
+      transition: 0.3s;
+      border-radius: 24px;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 18px;
+      width: 18px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      transition: 0.3s;
+      border-radius: 50%;
+    }
+
+    input:checked + .slider {
+      background: oklch(69.6% .17 162.48);
+    }
+
+    input:checked + .slider:before {
+      transform: translateX(24px);
+    }
+
+    .toggle-description {
+      font-size: 12px;
+      color: #64748b;
+      line-height: 1.5;
+    }
+
+    .stats {
+      background: white;
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 16px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .stats h3 {
+      font-size: 14px;
+      font-weight: 600;
+      color: #1e293b;
+      margin-bottom: 12px;
+    }
+
+    .stat-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 0;
+      border-bottom: 1px solid #f1f5f9;
+    }
+
+    .stat-item:last-child {
+      border-bottom: none;
+    }
+
+    .stat-label {
+      font-size: 13px;
+      color: #64748b;
+    }
+
+    .stat-value {
+      font-size: 14px;
+      font-weight: 600;
+      color: #1e293b;
+    }
+
+    .stat-value.ai {
+      color: #ef4444;
+    }
+
+    .stat-value.human {
+      color: #10b981;
+    }
+
+    .stat-value.unknown {
+      color: #64748b;
+    }
+
+    .actions {
+      display: flex;
+      gap: 8px;
+    }
+
+    .btn {
+      flex: 1;
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-primary {
+      background: oklch(69.6% .17 162.48);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: oklch(62% 0.16 162.48);
+    }
+
+    .btn-secondary {
+      background: #f1f5f9;
+      color: #475569;
+    }
+
+    .btn-secondary:hover {
+      background: #e2e8f0;
+    }
+
+    .footer {
+      padding: 16px 20px;
+      text-align: center;
+      font-size: 11px;
+      color: #64748b;
+    }
+
+    .footer a {
+      color: oklch(69.6% .17 162.48);
+      text-decoration: none;
+    }
+
+    .status {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px;
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-radius: 8px;
+      margin-bottom: 16px;
+    }
+
+    .status.inactive {
+      background: #fef2f2;
+      border-color: #fecaca;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #10b981;
+    }
+
+    .status.inactive .status-dot {
+      background: #ef4444;
+    }
+
+    .status-text {
+      font-size: 12px;
+      font-weight: 500;
+      color: #166534;
+    }
+
+    .status.inactive .status-text {
+      color: #991b1b;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>🔍 Huminify</h1>
+    <p>AI Content Detector</p>
+  </div>
+
+  <div class="content">
+    <div id="status" class="status">
+      <div class="status-dot"></div>
+      <div class="status-text">Extension Active</div>
+    </div>
+
+    <div class="toggle-section">
+      <div class="toggle-header">
+        <h3>Auto-Detect Images</h3>
+        <label class="toggle-switch">
+          <input type="checkbox" id="autoDetect" checked>
+          <span class="slider"></span>
+        </label>
+      </div>
+      <p class="toggle-description">
+        Automatically scan all images on the page for C2PA metadata
+      </p>
+    </div>
+
+    <div class="toggle-section">
+      <div class="toggle-header">
+        <h3>Show Badges</h3>
+        <label class="toggle-switch">
+          <input type="checkbox" id="showBadges" checked>
+          <span class="slider"></span>
+        </label>
+      </div>
+      <p class="toggle-description">
+        Display AI/Human badges on detected images
+      </p>
+    </div>
+
+    <div class="stats">
+      <h3>Current Page Stats</h3>
+      <div class="stat-item">
+        <span class="stat-label">Total Images</span>
+        <span class="stat-value" id="totalImages">0</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-label">AI Generated</span>
+        <span class="stat-value ai" id="aiImages">0</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-label">Human Created</span>
+        <span class="stat-value human" id="humanImages">0</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-label">Unknown</span>
+        <span class="stat-value unknown" id="unknownImages">0</span>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button class="btn btn-primary" id="scanBtn">Scan Page</button>
+      <button class="btn btn-secondary" id="clearBtn">Clear</button>
+    </div>
+  </div>
+
+  <div class="footer">
+    Powered by <a href="https://c2pa.org" target="_blank">C2PA</a> • 
+    <a href="https://github.com/Yogesh1290/huminify-c2pa-detector" target="_blank">GitHub</a>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
