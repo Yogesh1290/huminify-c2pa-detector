@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🔍 Huminify
+# 🔍 Huminify - Ai content detector powered by C2PA
 
 ### AI Content Detector with C2PA Verification
 
